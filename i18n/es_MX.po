@@ -1,0 +1,54 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* photo_security
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120511-233330\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-07-05 02:56+0000\n"
+"PO-Revision-Date: 2012-07-04 21:59-0600\n"
+"Last-Translator: Carlos Enrique Contreras Vara <carlosecv@realsystems.com.mx>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: photo_security
+#: model:ir.actions.act_window,help:photo_security.open_view_photo_list_my
+msgid "Here you can keep track of photos recorded. "
+msgstr "Aquí puede llevar un seguimiento de las fotos grabadas."
+
+#. module: photo_security
+#: model:ir.actions.act_window,name:photo_security.photo_normal_action_tree
+#: model:ir.model,name:photo_security.model_photo_security
+#: view:photo.security:0
+#: field:photo.security,photo:0
+msgid "Photo"
+msgstr "Foto"
+
+#. module: photo_security
+#: model:ir.actions.act_window,name:photo_security.open_view_photo_list
+#: model:ir.actions.act_window,name:photo_security.open_view_photo_list_my
+#: model:ir.ui.menu,name:photo_security.menu_open_view_photo_list_my
+#: model:ir.ui.menu,name:photo_security.menu_photo_main
+#: view:photo.security:0
+msgid "Photos"
+msgstr "Fotos"
+
+#. module: photo_security
+#: field:photo.security,name:0
+msgid "Photo Description"
+msgstr "Descripción de la Foto"
+
+#. module: photo_security
+#: field:photo.security,date:0
+msgid "Date of Photo"
+msgstr "Fecha de la Foto"
+
+#. module: photo_security
+#: model:ir.ui.menu,name:photo_security.menu_photo_root
+msgid "Photo Records"
+msgstr "Fotos grabadas"
+

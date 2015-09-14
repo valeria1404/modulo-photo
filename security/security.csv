@@ -1,0 +1,3 @@
+"Nombre","Objeto","Grupo","Permiso para crear","Permiso para eliminar","Permiso para escribir","Permiso para leer"
+"Ver Fotos","Foto","Fotos Grabadas / Recepción de Fotos","False","False","False","True"
+"Ver Fotos","Foto","Fotos Grabadas / Administrador de Recepción de Fotos ","False","True","True","True"

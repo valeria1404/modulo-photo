@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <menuitem id="menu_photo_root" icon="terp-hr" name="Photo Records" sequence="15"
+            web_icon="images/security.png"
+            web_icon_hover="images/security-hover.png"
+            groups="base.group_user"/>
+        
+        <menuitem id="menu_photo_main" parent="menu_photo_root" name="Photos" sequence="0"/>
+        
+        <!--
+        ==========
+   Este es el formulario de la foto las vistas estan abajo y despues continuamos con las acciones
+   supongo que hay que me terle algo a la descripcion de cada foto
+        ==========
+        -->
+        <record id="view_photo_form" model="ir.ui.view">
+            <field name="name">photo.security.form</field>
+            <field name="model">photo.security</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Photo">
+                    <group colspan="4" col="8">
+                        <group col="4">
+                        <field colspan="6" name="name" />
+                      
+                        <group colspan="2" col="1">
+                       
+                            <field name="photo" widget='image' nolabel="1"/>
+                       
+                            <field name="photo_card" widget='image' nolabel="1"/>
+                          
+                            <field name="photo_car" widget='image' nolabel="1"/>
+                        </group>
+                        </group>
+                            <field colspan="6" name="date" widget="datetime" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_photo_tree" model="ir.ui.view">
+            <field name="name">photo.security.tree</field>
+            <field name="model">photo.security</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Photos">
+                    <field name="name"/>
+					<field name="date" widget="datetime" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_photo_filter" model="ir.ui.view">
+            <field name="name">Photos</field>
+            <field name="model">photo.security</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Photos">
+                    <field name="name"/>
+                    <field name="date" widget="datetime" />
+                    <newline />
+                </search>
+             </field>
+         </record>
+        <!-- HR Kanban View  -->
+
+    <record model="ir.ui.view" id="security_kanban_view_photo">
+        <field name="name">Photo Security Kanban</field>
+        <field name="model">photo.security</field>
+        <field name="type">kanban</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_photo_vignette">
+                            <div class="oe_photo_image">
+                                <a type="edit"><img t-att-src="kanban_image('photo.security', 'photo', record.id.value)" class="oe_photo_picture"/></a>
+                            </div>
+                            <div class="oe_photo_details">
+                                <h4><a type="edit"><field name="name"/> (<field name="name"/>)</a></h4>
+                                <ul>
+                                    <li t-if="record.date.raw_value"><field name="date" widget="datetime" /></li>                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <script>
+                            $('.oe_photo_picture').load(function() { if($(this).width() > $(this).height()) { $(this).addClass('oe_photo_picture_wide') } });
+                        </script>
+                    </t>
+                </templates>
+            </kanban>
+
+        </field>
+    </record>
+        
+        
+        
+        
+        
+        <record id="open_view_photo_list" model="ir.actions.act_window">
+            <field name="name">Photos</field>
+            <field name="res_model">photo.security</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="view_photo_filter"/>
+        </record>
+
+        <record id="open_view_photo_list_my" model="ir.actions.act_window">
+            <field name="name">Photos</field>
+            <field name="res_model">photo.security</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[]</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="view_photo_filter"/>
+            <field name="help">Here you can keep track of photos recorded. </field>
+        </record>
+
+        <record id="open_view_photo_list_my_kanban" model="ir.actions.act_window.view">
+            <field name="sequence" eval="0"/>
+            <field name="view_mode">kanban</field>
+            <field name="act_window_id" ref="open_view_photo_list_my"/>
+        </record>
+        <record id="open_view_photo_list_my_tree2" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_photo_tree"/>
+            <field name="act_window_id" ref="open_view_photo_list_my"/>
+        </record>
+
+        <record id="open_view_photo_list_my_form2" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_photo_form"/>
+            <field name="act_window_id" ref="open_view_photo_list_my"/>
+        </record> 
+
+        <menuitem action="open_view_photo_list_my" id="menu_open_view_photo_list_my" sequence="3" parent="menu_photo_main"/>
+
+
+        
+        <record id="photo_normal_action_tree" model="ir.actions.act_window">
+            <field name="name">Photo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">photo.security</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <!--
+        ==========
+        Take Photo menu y accion para que trabaje la camara vale si quieres meterte en esto le investigas va??
+
+        ==========
+        
+       <record id="view_takephotoform" model="ir.ui.view">
+            <field name="name">photo.security.view_takephotoform</field>
+            <field name="model">photo.security</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Take Photo">
+                    <group colspan="4" col="8">
+                        <html>
+							<iframe src="http://localhost:81/webcam/index.html" scrolling="no" frameborder="0" style="width:1000px; height:1000px;" allowTransparency="true"></iframe>                                  
+                        </html>  
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="photo_take_action_form" model="ir.actions.act_window">
+            <field name="name">Take Photo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">photo.security</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_takephotoform"/>
+        </record>
+        
+        <menuitem action="photo_take_action_form" id="menu_open_take_photo_my" sequence="5" parent="menu_photo_main"/>
+        -->
+    </data>
+</openerp>
