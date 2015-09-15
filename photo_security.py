@@ -25,10 +25,12 @@ class photo_security(osv.osv):
     _name = "photo.security"
     _description = "Photo"
     _columns = {
-        'name': fields.char('Photo Description', size=128, required=True, select=True),
-        'date': fields.datetime("Date of Photo"),
-        'photo': fields.binary('Photo'),
-        'photo_card': fields.binary('Photo card'),
-        'photo_car': fields.binary('Photo car'),
+        'name'      : fields.char('Nombre del visitante', size=128, required=True, select=True),
+        #'visit'     : fields.many2one('fleet.vehicle', 'Nombre de a quien visita'),
+        'reason'    : fields.text ('Motivo de la visita', size=128, required=True, select=True),
+        'date'      : fields.datetime("Fecha"),
+        'photo'     : fields.binary('Foto de visitante'),
+        'photo_card': fields.binary('Foto de Credencial'),
+        'photo_car' : fields.binary('Foto de carro'),
        
     }

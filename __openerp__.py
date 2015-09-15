@@ -40,7 +40,7 @@ Module to record phtoto reception for security issues.
                 ],
     "demo_xml" : [],
     "update_xml" : [ 
-                     "view/photo_security_view.xml",        
+                     "photo_security_view.xml",        
                     ],
     'application': True,
     "installable": True,

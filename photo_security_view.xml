@@ -2,12 +2,12 @@
 <openerp>
     <data>
 
-        <menuitem id="menu_photo_root" icon="terp-hr" name="Photo Records" sequence="15"
+        <menuitem id="menu_photo_root" icon="terp-hr" name="Visitantes" sequence="15"
             web_icon="images/security.png"
             web_icon_hover="images/security-hover.png"
             groups="base.group_user"/>
         
-        <menuitem id="menu_photo_main" parent="menu_photo_root" name="Photos" sequence="0"/>
+        <menuitem id="menu_photo_main" parent="menu_photo_root" name="Visitas" sequence="0"/>
         
         <!--
         ==========
@@ -20,21 +20,38 @@
             <field name="model">photo.security</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="Photo">
+                <form string="Foto">
                     <group colspan="4" col="8">
                         <group col="4">
                         <field colspan="6" name="name" />
+                        <field colspan="6" name="reason" />
                       
-                        <group colspan="2" col="1">
+                         <group>
+
+                           <field colspan="6" name="date" widget="datetime" />
+                       </group>
+
+
+                        <group>
                        
                             <field name="photo" widget='image' nolabel="1"/>
+
+                         </group>
+                         
+                         <group>   
                        
                             <field name="photo_card" widget='image' nolabel="1"/>
+
+                         </group>
+                         
+                         <group >   
                           
                             <field name="photo_car" widget='image' nolabel="1"/>
+
                         </group>
+
                         </group>
-                            <field colspan="6" name="date" widget="datetime" />
+                            
                     </group>
                 </form>
             </field>
@@ -45,7 +62,7 @@
             <field name="model">photo.security</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
-                <tree string="Photos">
+                <tree string="Fotos">
                     <field name="name"/>
 					<field name="date" widget="datetime" />
                 </tree>
@@ -57,8 +74,10 @@
             <field name="model">photo.security</field>
             <field name="type">search</field>
             <field name="arch" type="xml">
-                <search string="Photos">
+                <search string="Fotos">
                     <field name="name"/>
+                   
+                    <field name="reason"/>
                     <field name="date" widget="datetime" />
                     <newline />
                 </search>
