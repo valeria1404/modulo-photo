@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-﻿# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-import photo_security
-=======
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
@@ -22,5 +18,22 @@ import photo_security
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import photo
->>>>>>> 98327cb49b2ebdc36c60b5b0fabaed855124c5b1
+from osv import fields, osv
+from datetime import time, datetime
+
+
+
+class photo(osv.osv):
+	_name = "photo.all"
+	_description = "visitas"
+	_columns = {
+	'name': fields.char('Nombre', size=128, required=True, select=True),
+        'visit': fields.many2one('hr.employee', 'Nombre de a quien visita'),
+        'reason': fields.text ('Motivo de la visita', size=58, required=True, select=True),
+        'date': fields.datetime("Fecha"),
+        'photo': fields.binary('Foto'),
+        'photo_card': fields.binary('Foto credencial'),
+        'photo_car': fields.binary('Foto de Vehículo'),
+       
+
+	}

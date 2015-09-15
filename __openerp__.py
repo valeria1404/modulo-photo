@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 ﻿# -*- coding: utf-8 -*-
 ##############################################################################
 #
+=======
+# -*- coding: utf-8 -*- 
+>>>>>>> 98327cb49b2ebdc36c60b5b0fabaed855124c5b1
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,6 +19,7 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
+<<<<<<< HEAD
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
@@ -22,13 +27,26 @@
     "name" : "Security Systems Photo Registration",
     "version" : "1.1",
     "author" : "Tinoco",
+=======
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#
+##############################################################################
+{
+    "name" : "Module to record photo studio",
+    "version" : "1.1",
+    "author" : "Valeria",
+>>>>>>> 98327cb49b2ebdc36c60b5b0fabaed855124c5b1
     "category" : "Customization",
     "depends" : ["base"],
     "description": """
 Module to record phtoto reception for security issues.
 ========================================================================
+<<<<<<< HEAD
    Developed by: Carlos Enrique Contreras Vara
                  carlosecv74@hotmail.com   
+=======
+   Developed by: www.equiposmc.com 
+>>>>>>> 98327cb49b2ebdc36c60b5b0fabaed855124c5b1
    
         Based upon JPEGCam 
         Requiere JPEGCam, php-xml library, on PHP Server side
@@ -40,11 +58,18 @@ Module to record phtoto reception for security issues.
                 ],
     "demo_xml" : [],
     "update_xml" : [ 
+<<<<<<< HEAD
                      "photo_security_view.xml",        
+=======
+                     "photo_view.xml",        
+>>>>>>> 98327cb49b2ebdc36c60b5b0fabaed855124c5b1
                     ],
     'application': True,
     "installable": True,
     "active": False
 }
+<<<<<<< HEAD
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+=======
+>>>>>>> 98327cb49b2ebdc36c60b5b0fabaed855124c5b1
